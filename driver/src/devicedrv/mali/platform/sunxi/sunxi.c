@@ -98,13 +98,14 @@ struct resource *mali_create_mali450_mp4_resources(unsigned long address,
 						   int irq_pp3, int irq_ppmmu3,
 						   int *len)
 {
+	/* Allwinner's Mali-450 does not have the PMU block */
 	struct resource target[] = {
-		MALI_GPU_RESOURCES_MALI450_MP4_PMU(address,
-						   irq_gp, irq_gpmmu,
-						   irq_pp0, irq_ppmmu0,
-						   irq_pp1, irq_ppmmu1,
-						   irq_pp2, irq_ppmmu2,
-						   irq_pp3, irq_ppmmu3, irq_pp)
+		MALI_GPU_RESOURCES_MALI450_MP4(address,
+					       irq_gp, irq_gpmmu,
+					       irq_pp0, irq_ppmmu0,
+					       irq_pp1, irq_ppmmu1,
+					       irq_pp2, irq_ppmmu2,
+					       irq_pp3, irq_ppmmu3, irq_pp)
 	};
 	struct resource *res;
 
